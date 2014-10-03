@@ -55,11 +55,11 @@ main (int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 	 }
 
 	 long hundred = 1024*1024*100;
-	 char buffer[10];
+	 char buffer[16];
 	 memset (buffer, 0, sizeof (buffer));
 	 for (long i = 0; i < size; i += 512) {
-		 snprintf (buffer, sizeof (buffer), "%07ld", i);
-		 memcpy (memblock+i, buffer, 7);
+		 snprintf (buffer, sizeof (buffer), "%012ld", i);
+		 memcpy (memblock+i, buffer, 12);
 		 if ((i % hundred) == 0) {
 			 printf ("%ld MiB\n", i * 100 / hundred);
 		 }
